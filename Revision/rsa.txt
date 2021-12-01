@@ -1,0 +1,39 @@
+
+
+def mul_inv(a,b):
+    t1=0
+    t2=1
+    x=a
+    while b!=0:
+        q=a//b
+        r=a%b
+        a=b
+        b=r
+        # inv
+        t=t1-q*t2
+        t1=t2
+        t2=t  
+    if a==1 :
+        return t1 % x
+    else:
+        print("GCD Not Equal to 1")
+                                                                                                                   
+def Gen_key(e,phy):
+    pubkey,pvtkey=[],[]
+    d=mul_inv(phy,e)
+    pubkey.append(e)
+    pvtkey.append(d)
+    pubkey.append(n)
+    pvtkey.append(n)
+    print("Public Key:",pubkey)
+    print("Private Key:",pvtkey)
+
+p=int(input("Enter a large prime number:"))
+q=int(input("Enter a large prime number:"))
+for i in range(5):
+    e=int(input("Enter public Key:"))
+    n=p*q
+    phy=(p-1)*(q-1)
+    Gen_key(e,phy)
+
+    
